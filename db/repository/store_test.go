@@ -92,6 +92,7 @@ func TestTransferTx(t *testing.T) {
 		require.True(t, diff1%amount == 0)
 
 		k := int(diff1 / amount)
+		fmt.Println(">> K:", k)
 		require.True(t, k >= 1 && k <= n)
 
 		require.NotContains(t, existed, k)
