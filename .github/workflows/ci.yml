@@ -31,17 +31,17 @@ jobs:
                 --health-retries 5
 
     steps:
-    - uses: actions/checkout@v3
-
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
         go-version: ^1.21.5
 
+    - name: Check out code into the Go module directory
+      uses: actions/checkout@v3
+
     - name : Install golang-migrate 
       run: |
         curl -L https://github.com/golang-migrate/migrate/releases/download/v4.17.0/migrate.linux-amd64.tar.gz | tar xvz
-        sudo mkdir /usr/local/bin/migrate/
         sudo mv migrate.linux-amd64 /usr/local/bin/migrate
         which migrate
 
