@@ -5,7 +5,7 @@ import (
 	"log"
 
 	"simplebank/api"
-	db "simplebank/db/repository"
+	db "simplebank/internal/repository"
 
 	_ "github.com/lib/pq"
 )

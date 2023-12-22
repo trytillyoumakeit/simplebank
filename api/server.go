@@ -1,7 +1,7 @@
 package api
 
 import (
-	db "simplebank/db/repository"
+	db "simplebank/internal/repository"
 
 	"github.com/gin-gonic/gin"
 )

@@ -3,7 +3,7 @@ package api
 import (
 	"database/sql"
 	"net/http"
-	db "simplebank/db/repository"
+	db "simplebank/internal/repository"
 
 	"github.com/gin-gonic/gin"
 )

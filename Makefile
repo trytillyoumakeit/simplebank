@@ -4,10 +4,10 @@ createdb:
 	 docker exec -it postgres16 createdb -U td --owner=td simplebank
 
 migrateup : 
-	migrate -path db/migration -database "postgresql://td:secret@localhost:5432/simplebank?sslmode=disable" -verbose up
+	migrate -path internal/migration -database "postgresql://td:secret@localhost:5432/simplebank?sslmode=disable" -verbose up
 
 migratedown :
-	migrate -path db/migration -database "postgresql://td:secret@localhost:5432/simplebank?sslmode=disable" -verbose down
+	migrate -path internal/migration -database "postgresql://td:secret@localhost:5432/simplebank?sslmode=disable" -verbose down
 
 dropdb: 
 	 docker exec -it postgres16 dropdb -U td simplebank
