@@ -9,6 +9,15 @@ migrateup :
 migratedown :
 	migrate -path internal/migration -database "postgresql://td:secret@localhost:5432/simplebank?sslmode=disable" -verbose down
 
+migratedown1 :
+	migrate -path internal/migration -database "postgresql://td:secret@localhost:5432/simplebank?sslmode=disable" -verbose down 1
+
+migrateup1 : 
+	migrate -path internal/migration -database "postgresql://td:secret@localhost:5432/simplebank?sslmode=disable" -verbose up 1
+
+newmigrate:
+	migrate create -ext sql -dir internal/migration -seq $(name)
+
 dropdb: 
 	 docker exec -it postgres16 dropdb -U td simplebank
 
@@ -24,4 +33,4 @@ server:
 mock: 
 	mockgen -package mockdb -destination internal/mock/store.go simplebank/internal/repository Store 
 
-.PHONY: createdb dropdb postgres migrateup migratedown sqlc test server mock
+.PHONY: createdb dropdb postgres migrateup migratedown sqlc test server mock migrateup1 migratedown1 newmigrate
