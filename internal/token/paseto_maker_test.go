@@ -11,8 +11,8 @@ import (
 func TestPasetoToken(t *testing.T) {
 	// Initialize PasetoMaker with a symmetric key
 	symmetricKey := paseto.NewV4SymmetricKey() // In real-world, use a secure, constant key
-	maker := NewPasetoMaker(symmetricKey, "your-implicit-assertion")
-
+	maker, err := NewPasetoMaker(symmetricKey, "your-implicit-assertion")
+	require.NoError(t, err)
 	username := "testuser"
 	duration := time.Minute
 

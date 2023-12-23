@@ -12,11 +12,11 @@ type PasetoMaker struct {
 	implicit     []byte
 }
 
-func NewPasetoMaker(symmetricKey paseto.V4SymmetricKey, implicit string) *PasetoMaker {
+func NewPasetoMaker(symmetricKey paseto.V4SymmetricKey, implicit string) (*PasetoMaker, error) {
 	return &PasetoMaker{
 		symmetricKey: symmetricKey,
 		implicit:     []byte(implicit),
-	}
+	}, nil
 }
 func (maker *PasetoMaker) CreateToken(username string, duration time.Duration) (string, error) {
 	payload, err := NewPayLoad(username, duration)
